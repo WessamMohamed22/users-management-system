@@ -1,73 +1,68 @@
-# React + TypeScript + Vite
+# 🎯 Users Management Module - ERP System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📋 Scenario
+Building a small module inside an ERP system that displays, filters, and manages users data.
 
-Currently, two official plugins are available:
+## ✅ Core Requirements Implemented
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 1. ✅ Users List
+- Fetches users from: `https://jsonplaceholder.typicode.com/users`
+- Displays users in a responsive table with:
+  - **Name**
+  - **Email**
+  - **Company Name**
+  - **City**
 
-## React Compiler
+### 2. ✅ Search & Filter
+- **Real-time search** by:
+  - Name
+  - Email
+- **Filter** by:
+  - City (dynamic from API data)
+- Requirements met:
+  - Real-time search with 300ms debounce
+  - No page refresh needed
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 3. ✅ User Details
+- Clicking on a user opens a **modal** showing:
+  - Full user information
+  - Complete address details
+  - Company details
+- Modal features:
+  - Close with ESC key
+  - Click outside to close
+  - Responsive design
 
-## Expanding the ESLint configuration
+### 4. ✅ State Management
+- **Context API** used for global state
+- Well-structured state organization
+- **Avoided** excessive props drilling
+- Custom hook: `useUsers()` for easy consumption
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 5. ✅ UX & Error Handling
+- **Loading state**: Animated spinner with message
+- **Error state**: User-friendly error display with retry button
+- **Empty state**: Clear message when no results found
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## ⭐ Bonus Features (All Implemented)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### ✅ Pagination
+- Client-side pagination (5 users per page)
+- Page reset on search/filter change
+- Previous/Next navigation
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### ✅ Memoization
+- `useMemo` for:
+  - Filtered users calculation
+  - Paginated users slicing
+  - Cities extraction from data
+- `useCallback` for stable function references
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### ✅ Responsive Design
+- Fully responsive across all devices
+- Mobile-first approach
+- Breakpoints for tablet and desktop
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### ✅ Clean Folder Structure
