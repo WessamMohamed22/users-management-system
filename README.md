@@ -172,8 +172,9 @@ npm run preview
 
 The application will be available at: http://localhost:5173
 
-📋 Technical Decisions & Architecture
-1. State Management Strategy
+---
+## 📋 Technical Decisions & Architecture
+### 1. State Management Strategy
 Chose Context API because:
 
 Project scope is small/medium (10+ components)
@@ -186,7 +187,7 @@ Simple and effective for this use case
 
 Built-in React solution (no external dependencies)
 
-2. Performance Optimizations
+### 2. Performance Optimizations
 Debounced Search: 300ms delay prevents excessive filtering on every keystroke
 
 Memoization: useMemo prevents expensive recalculations on every render
@@ -195,7 +196,7 @@ Pagination: Limits DOM nodes for better rendering performance
 
 Conditional Rendering: Components only render when needed
 
-3. Component Architecture
+### 3. Component Architecture
 Separation of Concerns: Each component has a single responsibility
 
 Custom Hooks: useUsers abstracts complex logic from components
@@ -204,7 +205,7 @@ Type Safety: Full TypeScript interfaces for all props and data
 
 Reusability: Components designed to be reused in other parts of the app
 
-4. UX/UI Decisions
+### 4. UX/UI Decisions
 Modal over Separate Page: Better flow for viewing details
 
 Real-time Feedback: Immediate visual feedback during interactions
@@ -213,7 +214,7 @@ Clear Visual States: Distinct loading, error, and empty states
 
 Progressive Enhancement: Works without JavaScript (basic functionality)
 
-5. Code Quality
+### 5. Code Quality
 ESLint Configuration: Code quality rules enforced
 
 TypeScript Strict Mode: Catch errors at compile time
@@ -221,9 +222,9 @@ TypeScript Strict Mode: Catch errors at compile time
 Consistent Naming: Clear, descriptive variable and function names
 
 Commenting: Strategic comments for complex logic
-
-🤔 Assumptions Made
-1. API & Data Assumptions:
+--
+##🤔 Assumptions Made
+### 1. API & Data Assumptions:
 Using JSONPlaceholder mock API (read-only, no authentication)
 
 Data set is static (no real-time updates needed)
@@ -232,14 +233,14 @@ API returns consistent data structure
 
 No server-side pagination or filtering required
 
-2. Performance Assumptions:
+### 2. Performance Assumptions:
 Client-side filtering is sufficient for up to 1000 users
 
 Users understand real-time search behavior
 
 300ms debounce provides good balance of performance and responsiveness
 
-3. User Experience Assumptions:
+### 3. User Experience Assumptions:
 Modal interface is intuitive for viewing details
 
 Export functionality is a valuable bonus feature
@@ -248,14 +249,15 @@ Users expect to clear filters when no results found
 
 Keyboard shortcuts (ESC) are appreciated but not required
 
-4. Browser Support:
+### 4. Browser Support:
 Modern browsers (Chrome 90+, Firefox 88+, Safari 14+, Edge 90+)
 
 No IE11 support required
 
 Responsive design works on mobile, tablet, and desktop
+--
 
-🔄 Architecture Flow
+## 🔄 Architecture Flow
 text
 API Request → Context State → Filtering → Pagination → UI Components
     ↓            ↓            ↓            ↓            ↓
@@ -267,7 +269,7 @@ State Layer: Context stores all application state
 Business Logic: Filtering and pagination calculations
 
 UI Layer: Components display data and handle interactions
-
-✉️ Author
+--
+## ✉️ Author
 Wessam Mohamed - [GitHub](https://github.com/WessamMohamed22)
 
